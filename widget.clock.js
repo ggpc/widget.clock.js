@@ -1,16 +1,23 @@
 (function(module){
-    /**
-    target = null
-    activate = [true]
-    format = [%D, %H:%i:%s]
-    */
     var draw = function(){
         var result = document.createElement('div');
         result.className = 'ggp-clock';
         return result;
     };
+    var tryFindTarget = function(params){
+      var targets = document.querySelectorAll(params+', #'+params);
+      return targets.length > 0?targets[0]:null;
+    };
     var clock = function(params){
        this.container = draw();
+       if(typeof params == 'string'){
+          var target = tryFindTarget(params);
+          if(target instanceof HTMLElement){
+            params = {
+              'target': target
+            };
+          }
+       }
        if(params['target'] instanceof HTMLElement){
            params['target'].appendChild(this.container);
        }
