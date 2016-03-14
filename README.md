@@ -8,6 +8,17 @@ Clock widget. Supports different time formats. Has own controller.
 
 clock(parameters);
 
+## Clock object Methods and Properties
+### Properties
+- updateIntervalPeriod: 1,
+- format: '%D, %H:%i:%s',
+- active: false,
+### Methods
+- start()
+- stop()
+
+>Use [ggpc/system.date.js](https://github.com/ggpc/system.date.js) syntax to change date format
+
 # Usage
 
 ```javascript
@@ -27,4 +38,16 @@ If You skip parameter, then append container property manually to your target.
 ```javascript
 var myc = new clock();
 document.body.appendChild(myc.container);
+```
+
+# Example
+```javascript
+var c1 = new clock(document.body);
+// same as
+var c2 = new clock({target: document.body});
+// same as 
+var c3 = new clock('body');
+// same as
+var c4 = new clock();
+document.body.appendChild(c4.container);
 ```
