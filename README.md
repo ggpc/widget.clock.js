@@ -30,7 +30,7 @@ var myc = new clock('body');
 ## Parameters
 There're available several types of parameter
 
->- 1. {container: HTMLElement, activate: false}
+>- 1. {target: HTMLElement, activate: false}
 - 2. document.getElementById('my-w')
 - 3. '#my-w'
 - 4. 'body>div'
