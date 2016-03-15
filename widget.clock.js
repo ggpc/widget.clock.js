@@ -29,6 +29,7 @@
     clock.prototype = {
     	updateIntervalPeriod: 1,
       format: '%D, %H:%i:%s',
+      lang: null,
     	active: false,
     	start: function(){
     	    if(this.active){
@@ -49,13 +50,13 @@
         setTimeout(function(){
           try{
             if(self.active === true){
-              self.container.innerHTML = date_formatted(self.format);
+              self.container.innerHTML = date_formatted(self.format, null, self.lang);
             }
           }catch(e){
             self.container.innerHTML = 'unable to update';
           }
           self.update();
-        },this.updateIntervalPeriod);
+        },this.updateIntervalPeriod*1000);
       }
     };
     module.clock = clock;
