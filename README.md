@@ -51,3 +51,6 @@ var c3 = new clock('body');
 var c4 = new clock();
 document.body.appendChild(c4.container);
 ```
+
+# Live Demo
+[live demo](http://gzone.org.ua/files/library/js/widget/Clock/widget.clock.html)
