@@ -79,8 +79,11 @@
     Hours.H = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'];
 
     var date_formatted = function(str, dt, lang){
+        var local_date_cache = date_cache;
         if(typeof lang == 'undefined' || langs.indexOf(lang) == -1){
             lang = default_lang;
+        }else{
+            local_date_cache = create_date_cache(lang);
         }
         if(dt instanceof Date === false){
             switch(typeof dt){
@@ -117,7 +120,7 @@
         current_cache['A'] = hour<13?'AM':'PM';
 
         var val;
-        for(var i in date_cache){
+        for(var i in local_date_cache){
             switch(i){
                 case 'w':
                 case 'W':
@@ -142,7 +145,7 @@
                     val = hour;
                     break;
             }
-            current_cache[i] = date_cache[i][val];
+            current_cache[i] = local_date_cache[i][val];
         }
         // apply to format string
         for(var i in current_cache){
@@ -187,4 +190,4 @@
     };
     // initialization
     set_date_language(default_lang);
-})(window);
+})(typeof module == 'object'?module:window);
