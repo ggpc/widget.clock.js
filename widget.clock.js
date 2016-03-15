@@ -31,6 +31,7 @@
       format: '%D, %H:%i:%s',
       lang: null,
     	active: false,
+      value: '',
     	start: function(){
     	    if(this.active){
         		console.log('widget.clock: allready started');
@@ -50,7 +51,11 @@
         setTimeout(function(){
           try{
             if(self.active === true){
-              self.container.innerHTML = date_formatted(self.format, null, self.lang);
+              var new_value = date_formatted(self.format, null, self.lang);
+              if(self.value != new_value){
+                self.container.innerHTML = new_value;
+                self.value = new_value;
+              }
             }
           }catch(e){
             self.container.innerHTML = 'unable to update';
