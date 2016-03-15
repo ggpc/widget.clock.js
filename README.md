@@ -10,9 +10,10 @@ clock(parameters);
 
 ## Clock object Methods and Properties
 ### Properties
-- updateIntervalPeriod: 1,
-- format: '%D, %H:%i:%s',
+- updateIntervalPeriod: 1, // in seconds
+- format: '%D, %H:%i:%s',  
 - active: false,
+- lang: 'en' // en by default. Support all languages from system.date.js library
 ### Methods
 - start()
 - stop()
