@@ -59,4 +59,4 @@
       }
     };
     module.clock = clock;
-})(window);
+})(typeof module == 'object'?module:window);
