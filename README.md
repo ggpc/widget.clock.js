@@ -14,6 +14,7 @@ clock(parameters);
 - format: '%D, %H:%i:%s',  
 - active: false,
 - lang: 'en' // en by default. Support all languages from system.date.js library
+
 ### Methods
 - start()
 - stop()
